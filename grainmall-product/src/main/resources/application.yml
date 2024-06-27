@@ -1,0 +1,9 @@
+spring:
+  # ?? dev|test|prod
+  profiles:
+    include: dev
+  application:
+    name: grainmall-product
+server:
+  port: 8000
+
