@@ -32,7 +32,13 @@ spring:
                 wall:
                     config:
                         multi-statement-allow: true
-
+    cloud:
+        nacos:
+          discovery:
+            server-addr: 1.94.126.142:8848
+            username: nacos
+            password: mmdemmde20...
+            group: DEFAULT_GROUP
 
 ##多数据源的配置
 #dynamic:

@@ -17,6 +17,7 @@
         <module>renren-fast</module>
         <module>grainmall-order</module>
         <module>grainmall-common</module>
+        <module>grainmall-gateway</module>
     </modules>
 
 </project>
