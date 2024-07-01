@@ -2,6 +2,7 @@ package com.baize.grainmall.product.dao;
 
 import com.baize.grainmall.common.dao.BaseDao;
 import com.baize.grainmall.product.entity.BrandEntity;
+import com.baize.grainmall.product.entity.CategoryEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -12,5 +13,5 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface BrandDao extends BaseDao<BrandEntity> {
-	
+    void update(CategoryEntity category);
 }

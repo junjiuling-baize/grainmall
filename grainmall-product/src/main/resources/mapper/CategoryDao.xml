@@ -14,6 +14,13 @@
         <result property="productUnit" column="product_unit"/>
         <result property="productCount" column="product_count"/>
     </resultMap>
+    <update id="removeMenuByIds">
+        delete from pms_category where cat_id in
+        <foreach collection="catIds" item="catId" open="(" separator="," close=")">
+            #{catId}
+        </foreach>
+    </update>
+
 
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.baize.grainmall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class AttrGroupEntity {
     /**
      * 分组id
      */
+    @TableId(value="attr_group_id")
 	private Long attrGroupId;
     /**
      * 组名

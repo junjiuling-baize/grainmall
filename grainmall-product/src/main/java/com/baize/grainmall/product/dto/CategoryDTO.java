@@ -6,6 +6,8 @@ import io.swagger.v3.oas.annotations.media.SchemaProperty;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
+
 /**
  * 商品三级分类
  *
@@ -78,7 +80,9 @@ public class CategoryDTO implements Serializable {
 	private Integer productCount;
 
 
-
+	@SchemaProperty(name = "商品数量")
+	@ExcelProperty(value = "商品数量")
+	private List<CategoryDTO> Children;
 
 
 }

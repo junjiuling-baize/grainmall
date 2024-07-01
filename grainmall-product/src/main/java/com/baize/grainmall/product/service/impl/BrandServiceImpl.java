@@ -1,5 +1,6 @@
 package com.baize.grainmall.product.service.impl;
 
+import com.baize.grainmall.common.utils.ConvertUtils;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baize.grainmall.common.service.impl.CrudServiceImpl;
 import com.baize.grainmall.product.dao.BrandDao;
@@ -21,6 +22,29 @@ import java.util.Map;
 public class BrandServiceImpl extends CrudServiceImpl<BrandDao, BrandEntity, BrandDTO> implements BrandService {
 
     @Override
+    public void updateById(BrandDTO BrandDTO) {
+        ;
+        Integer i = baseMapper.updateById(ConvertUtils.sourceToTarget(BrandDTO, BrandEntity.class));
+        System.out.println(i);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Override
     public QueryWrapper<BrandEntity> getWrapper(Map<String, Object> params){
         String id = (String)params.get("id");
 
@@ -29,6 +53,7 @@ public class BrandServiceImpl extends CrudServiceImpl<BrandDao, BrandEntity, Bra
 
         return wrapper;
     }
+
 
 
 }

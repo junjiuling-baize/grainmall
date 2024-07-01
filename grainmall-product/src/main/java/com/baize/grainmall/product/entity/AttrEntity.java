@@ -1,5 +1,7 @@
 package com.baize.grainmall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -18,6 +20,7 @@ public class AttrEntity {
     /**
      * 属性id
      */
+    @TableId(value="attr_id")
 	private Long attrId;
     /**
      * 属性名
@@ -26,6 +29,7 @@ public class AttrEntity {
     /**
      * 是否需要检索[0-不需要，1-需要]
      */
+
 	private Integer searchType;
     /**
      * 属性图标
@@ -42,6 +46,7 @@ public class AttrEntity {
     /**
      * 启用状态[0 - 禁用，1 - 启用]
      */
+
 	private Long enable;
     /**
      * 所属分类

@@ -7,7 +7,7 @@
           predicates:
             - Path=/api/product/**
           filters:
-            - RewritePath=/product/(?<segment>.*),/$\{segment}
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
         - id: admin-route
           uri: lb://renren-fast
           predicates:

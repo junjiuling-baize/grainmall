@@ -1,5 +1,6 @@
 package com.baize.grainmall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -19,6 +20,7 @@ public class SkuInfoEntity {
     /**
      * skuId
      */
+    @TableId(value = "sku_id")
 	private Long skuId;
     /**
      * spuId

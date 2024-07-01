@@ -11,8 +11,11 @@ import com.baize.grainmall.common.validator.group.AddGroup;
 import com.baize.grainmall.common.validator.group.DefaultGroup;
 import com.baize.grainmall.common.validator.group.UpdateGroup;
 import com.baize.grainmall.product.dto.CategoryDTO;
+import com.baize.grainmall.product.entity.CategoryEntity;
 import com.baize.grainmall.product.excel.CategoryExcel;
 import com.baize.grainmall.product.service.CategoryService;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.Parameters;
@@ -23,6 +26,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -49,9 +54,9 @@ public class CategoryController {
 
     @GetMapping("/list/tree")
     @Operation(summary = "列表")
-    public List<CategoryDTO> list() {
+    public Result<List<CategoryDTO>> list() {
         List<CategoryDTO> entities = categoryService.listWithTree();
-        return null;
+        return new Result<List<CategoryDTO>>().ok(entities);
     }
 
     @GetMapping("page")
@@ -76,6 +81,7 @@ public class CategoryController {
         CategoryDTO data = categoryService.get(id);
 
         return new Result<CategoryDTO>().ok(data);
+
     }
 
     @PostMapping
@@ -104,16 +110,14 @@ public class CategoryController {
         return new Result();
     }
 
-    @DeleteMapping
+    @PostMapping("/delete")
     @Operation(summary = "删除")
     @LogOperation("删除")
     // @RequiresPermissions("product:category:delete")
-    public Result delete(@RequestBody Long[] ids) {
+    public Result delete(@RequestBody Integer[] ids) {
         //效验数据
         AssertUtils.isArrayEmpty(ids, "id");
-
-        categoryService.delete(ids);
-
+       categoryService.removeByIds(Arrays.asList(ids));
         return new Result();
     }
 

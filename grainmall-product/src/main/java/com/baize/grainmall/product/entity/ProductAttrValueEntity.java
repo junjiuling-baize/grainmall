@@ -1,5 +1,6 @@
 package com.baize.grainmall.product.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class ProductAttrValueEntity {
     /**
      * id
      */
+    @TableId(value="id")
 	private Long id;
     /**
      * 商品id

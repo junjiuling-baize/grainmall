@@ -50,11 +50,11 @@ public class BrandController {
    //@RequiresPermissions("product:brand:page")
     public Result<PageData<BrandDTO>> page(@Parameter(hidden = true) @RequestParam Map<String, Object> params){
         PageData<BrandDTO> page = brandService.page(params);
-
+        System.out.println(page.toString());
         return new Result<PageData<BrandDTO>>().ok(page);
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/info/{id}")
     @Operation(summary = "信息")
    // @RequiresPermissions("product:brand:info")
     public Result<BrandDTO> get(@PathVariable("id") Long id){
@@ -76,7 +76,7 @@ public class BrandController {
         return new Result();
     }
 
-    @PutMapping
+    @PutMapping("/update/status")
     @Operation(summary = "修改")
     @LogOperation("修改")
    // @RequiresPermissions("product:brand:update")
@@ -84,7 +84,7 @@ public class BrandController {
         //效验数据
         ValidatorUtils.validateEntity(dto, UpdateGroup.class, DefaultGroup.class);
 
-        brandService.update(dto);
+        brandService.updateById(dto);
 
         return new Result();
     }

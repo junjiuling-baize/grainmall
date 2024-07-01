@@ -13,5 +13,27 @@
         <result property="sort" column="sort"/>
     </resultMap>
 
+    <update id="update">
 
+        update pms_category
+        <set>
+            <if test="name != null">
+                name = #{name},
+            </if>
+            <if test="logo != null">
+                logo = #{logo},
+            </if>
+            <if test="descript != null">
+                descript = #{descript},
+            </if>
+            <if test="showStatus != null">
+                show_status = #{showStatus},
+            </if>
+            <if test="sort != null">sort = #{sort},</if>
+            <if test="firstLetter !=null">
+                first_letter = #{firstLetter},
+            </if>
+        </set>
+        where brand_id = #{brandId}
+    </update>
 </mapper>

@@ -11,5 +11,5 @@ import com.baize.grainmall.product.entity.BrandEntity;
  * @since 1.0.0 2024-06-22
  */
 public interface BrandService extends CrudService<BrandEntity, BrandDTO> {
-
+    void updateById(BrandDTO BrandDTO);
 }
