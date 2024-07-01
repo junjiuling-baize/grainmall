@@ -5,28 +5,24 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.2.5</version>
+        <version>3.3.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.baize.grainmall</groupId>
-    <artifactId>grainmall-product</artifactId>
+    <artifactId>grainmall-third-party</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>grainmall-product</name>
-    <description>商品服务</description>
-
+    <name>grainmall-third-party</name>
+    <description>第三方服务</description>
     <properties>
         <java.version>17</java.version>
         <spring-cloud.version>2023.0.2</spring-cloud.version>
     </properties>
     <dependencies>
-
-
         <dependency>
             <groupId>com.baize.grainmall</groupId>
             <artifactId>grainmall-common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -41,13 +37,17 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <!--微服务中最高的oss版本为2.2.0.RELEASE-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alicloud-oss</artifactId>
+            <version>2.2.0.RELEASE</version>
+        </dependency>
         <!--开启Spring Cloud 应用程序启动时加载bootstrap配置文件-->
-                <dependency>
-                    <groupId>org.springframework.cloud</groupId>
-                    <artifactId>spring-cloud-starter-bootstrap</artifactId>
-                </dependency>
-
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
+        </dependency>
 
     </dependencies>
     <dependencyManagement>
@@ -67,15 +67,8 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <profiles>
-                        <profile>dev</profile>
-                        <profile>test</profile>
-                    </profiles>
-                </configuration>
             </plugin>
         </plugins>
-
     </build>
 
 </project>

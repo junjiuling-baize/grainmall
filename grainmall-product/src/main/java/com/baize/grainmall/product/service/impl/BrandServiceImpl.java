@@ -8,6 +8,7 @@ import com.baize.grainmall.product.dto.BrandDTO;
 import com.baize.grainmall.product.entity.BrandEntity;
 import com.baize.grainmall.product.service.BrandService;
 import cn.hutool.core.util.StrUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
@@ -20,40 +21,26 @@ import java.util.Map;
  */
 @Service
 public class BrandServiceImpl extends CrudServiceImpl<BrandDao, BrandEntity, BrandDTO> implements BrandService {
+    @Autowired
+    private BrandDao brandDao;
 
     @Override
     public void updateById(BrandDTO BrandDTO) {
-        ;
-        Integer i = baseMapper.updateById(ConvertUtils.sourceToTarget(BrandDTO, BrandEntity.class));
-        System.out.println(i);
+        brandDao.updateById(ConvertUtils.sourceToTarget(BrandDTO, BrandEntity.class));
+//        brandDao.update(ConvertUtils.sourceToTarget(BrandDTO, BrandEntity.class));
 
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Override
-    public QueryWrapper<BrandEntity> getWrapper(Map<String, Object> params){
-        String id = (String)params.get("id");
+    public QueryWrapper<BrandEntity> getWrapper(Map<String, Object> params) {
+        String id = (String) params.get("id");
 
         QueryWrapper<BrandEntity> wrapper = new QueryWrapper<>();
         wrapper.eq(StrUtil.isNotBlank(id), "id", id);
 
         return wrapper;
     }
-
 
 
 }
